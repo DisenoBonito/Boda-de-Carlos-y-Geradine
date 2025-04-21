@@ -1,0 +1,104 @@
+<!DOCTYPE html>
+<html lang="es">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Tatiana y Jefrey</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link href="https://fonts.googleapis.com/css2?family=Great+Vibes&family=Inter:wght@400;700&display=swap" rel="stylesheet">
+    <style>
+      body {
+        font-family: 'Inter', sans-serif;
+      }
+      .font-script {
+        font-family: 'Great Vibes', cursive;
+      }
+    </style>
+  </head>
+  <body class="bg-white text-gray-800">
+
+    <!-- Fondo principal con los nombres -->
+    <section class="h-screen bg-cover bg-center relative" style="background-image: url('https://tatiana-y-jefrey.vercel.app/_next/image?url=%2F1.jpg&w=1920&q=75');">
+      <div class="absolute inset-0 bg-black/50"></div>
+      <div class="relative z-10 flex flex-col justify-center items-center h-full text-white text-center">
+        <h1 class="text-5xl md:text-6xl font-script">Tatiana & Jefrey</h1>
+        <p class="mt-4 text-xl md:text-2xl">Nuestra boda - 2025</p>
+      </div>
+    </section>
+
+    <!-- Sección de invitación -->
+    <section class="py-20 px-6 text-center">
+      <h2 class="text-4xl font-script text-pink-600 mb-4">¡Nos casamos!</h2>
+      <p class="max-w-2xl mx-auto text-lg md:text-xl text-gray-700">
+        Con mucha alegría queremos invitarte a celebrar nuestro matrimonio. Será un día lleno de amor, felicidad y momentos inolvidables. ¡Contamos contigo!
+      </p>
+    </section>
+
+    <!-- Sección de fecha y lugar -->
+    <section class="py-16 bg-gray-50 px-6 text-center">
+      <h3 class="text-3xl md:text-4xl font-semibold text-gray-800 mb-6">Detalles del evento</h3>
+
+      <div class="max-w-xl mx-auto space-y-6 text-lg text-gray-700">
+        <div>
+          <p class="font-semibold">📅 Fecha:</p>
+          <p>15 de Agosto de 2025</p>
+        </div>
+        <div>
+          <p class="font-semibold">📍 Lugar:</p>
+          <p>Iglesia Santa María, Medellín</p>
+        </div>
+        <div>
+          <p class="font-semibold">🎉 Fiesta:</p>
+          <p>Salón Jardín Encantado, 7:00 PM</p>
+        </div>
+      </div>
+    </section>
+
+    <!-- Sección de cuenta regresiva -->
+    <section class="py-16 px-6 text-center bg-white">
+      <h3 class="text-3xl md:text-4xl font-semibold text-gray-800 mb-6">Faltan</h3>
+
+      <div id="countdown" class="flex justify-center gap-6 text-pink-600 text-2xl font-bold">
+        <div>
+          <span id="days">00</span>
+          <p class="text-sm text-gray-600 font-normal">Días</p>
+        </div>
+        <div>
+          <span id="hours">00</span>
+          <p class="text-sm text-gray-600 font-normal">Horas</p>
+        </div>
+        <div>
+          <span id="minutes">00</span>
+          <p class="text-sm text-gray-600 font-normal">Minutos</p>
+        </div>
+        <div>
+          <span id="seconds">00</span>
+          <p class="text-sm text-gray-600 font-normal">Segundos</p>
+        </div>
+      </div>
+    </section>
+
+    <!-- Script para el conteo regresivo -->
+    <script>
+      const countdown = () => {
+        const eventDate = new Date("2025-08-15T19:00:00").getTime();
+        const now = new Date().getTime();
+        const distance = eventDate - now;
+
+        const days = Math.floor(distance / (1000 * 60 * 60 * 24));
+        const hours = Math.floor((distance % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
+        const minutes = Math.floor((distance % (1000 * 60 * 60)) / (1000 * 60));
+        const seconds = Math.floor((distance % (1000 * 60)) / 1000);
+
+        document.getElementById("days").textContent = days.toString().padStart(2, "0");
+        document.getElementById("hours").textContent = hours.toString().padStart(2, "0");
+        document.getElementById("minutes").textContent = minutes.toString().padStart(2, "0");
+        document.getElementById("seconds").textContent = seconds.toString().padStart(2, "0");
+      };
+
+      countdown();
+      setInterval(countdown, 1000);
+    </script>
+  </body>
+</html>
